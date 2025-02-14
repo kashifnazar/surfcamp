@@ -1,18 +1,22 @@
+import { BlockRenderer } from "@/components/blocks/BlockRenderer";
+import { getHomePage } from "@/data/loaders";
+import { notFound } from "next/navigation";
+
 async function loader() {
-  const response = await fetch("http://localhost:1337/api/home-page");
-  const data = await response.json();
-  return data;
+  const data = await getHomePage();
+  if (!data) notFound();
+  console.log(data);
+  return { ...data.data };
 }
 
 export default async function Home() {
-  const {
-    data: { title, description },
-  } = await loader();
+  const data = await loader();
+  const blocks = data?.blocks ?? [];
+  console.log("data", JSON.stringify(data, null, 4));
 
   return (
     <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <BlockRenderer blocks={blocks} />
     </div>
   );
 }

@@ -7,8 +7,8 @@ export interface BlocksHeroSection extends Struct.ComponentSchema {
     displayName: 'Hero Section';
   };
   attributes: {
-    cta: Schema.Attribute.Component<'element.link', true>;
-    headline: Schema.Attribute.String;
+    cta: Schema.Attribute.Component<'element.link', false>;
+    heading: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     logo: Schema.Attribute.Component<'element.logo', false>;
     theme: Schema.Attribute.Enumeration<['turquoise', 'orange']>;

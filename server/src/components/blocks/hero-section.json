@@ -19,12 +19,12 @@
         "images"
       ]
     },
-    "headline": {
+    "heading": {
       "type": "string"
     },
     "cta": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "element.link"
     },
     "theme": {
