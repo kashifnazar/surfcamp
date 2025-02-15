@@ -1,4 +1,4 @@
-import { BlockRenderer } from "@/components/blocks/BlockRenderer";
+import { BlockRenderer } from "@/components/BlockRenderer";
 import { getHomePage } from "@/data/loaders";
 import { notFound } from "next/navigation";
 
