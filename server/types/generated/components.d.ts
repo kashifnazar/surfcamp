@@ -53,6 +53,19 @@ export interface ElementLogo extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutHeader extends Struct.ComponentSchema {
+  collectionName: 'components_layout_headers';
+  info: {
+    description: '';
+    displayName: 'header';
+  };
+  attributes: {
+    cta: Schema.Attribute.Component<'element.link', false>;
+    logo: Schema.Attribute.Component<'element.logo', false>;
+    navigation: Schema.Attribute.Component<'element.link', true>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -60,6 +73,7 @@ declare module '@strapi/strapi' {
       'blocks.info-block': BlocksInfoBlock;
       'element.link': ElementLink;
       'element.logo': ElementLogo;
+      'layout.header': LayoutHeader;
     }
   }
 }
